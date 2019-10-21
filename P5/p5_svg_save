@@ -1,0 +1,75 @@
+<html>
+<head>
+<script type="text/javascript" src="<a href="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.1/p5.min.js" target="_blank" rel="nofollow">https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.1/p5.min.js</a>"></script>
+<script type="text/javascript" src="<a href="https://github.com/zenozeng/p5.js-svg/releases/download/v0.5.2/p5.svg.js" target="_blank" rel="nofollow">https://github.com/zenozeng/p5.js-svg/releases/download/v0.5.2/p5.svg.js</a>"></script>
+</head>
+<body>
+
+    <script>
+
+        let colors = ["red", "orange", "yellow", "lime", "green", "blue", "fuchsia"];
+        let idx = 0;
+
+        let sketch = function (p) {
+
+            p.setup = function () {
+
+                if (p.type === "SVG") {
+                    p.createCanvas(400, 400, p.SVG);
+                }
+                else if (p.type === "NORMAL") {
+                    p.createCanvas(400, 400);
+                }
+                else {
+                    alert("don't know which canvas to create")
+                }
+                p.noLoop();
+            };
+
+            p.draw = function () {
+                p.background("white");
+                p.fill(colors[idx]);
+                p.stroke("black");
+                p.strokeWeight(3);
+                p.ellipse(200, 200, 200,200);
+
+                p.fill("black");
+                p.noStroke();
+
+                p.textStyle(p.NORMAL);
+                p.text("test", 100, 100);
+
+                p.textStyle(p.BOLD);
+                p.text("bold", 200, 200);
+
+                waiting = false;
+            };
+
+            p.mousePressed = function() {
+                if (p.dist(p.mouseX, p.mouseY, 200,200) < 100) {
+                    idx++;
+                    idx %= colors.length;
+                    p.redraw();
+                }
+            };
+
+            p.save_canvas = function() {
+                p.draw();  // <--- redraw using latest parameters
+                p.save();
+            }
+        };
+
+        cvs = new p5(sketch, "my_image");
+        cvs.type = "NORMAL";
+
+        svg = new p5(sketch, "hidden_div");
+        svg.type = "SVG";
+    </script>
+
+    <div id="my_image"></div>
+    <div id="hidden_div" style="display:none"></div>
+
+    <button onclick="svg.save_canvas()">Save SVG</button>
+
+</body>
+</html>

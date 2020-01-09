@@ -16,7 +16,7 @@ int[][] getPixelArr ;
 IntList indexList = new IntList();
 
 void settings() {
-  img = loadImage("photo/deere.jpg");
+  img = loadImage("pixelart/beach.jpg");
   img.resize(img.width, img.height);
   img.loadPixels();
   size(img.width, img.height);
@@ -104,7 +104,7 @@ void paint() {
 
   rotate(c);
   noStroke();
-  fill(0, 0, 0, alphaValue-80);
+  /*fill(0, 0, 0, alphaValue-80);
   ellipse(currentX+fractionLen/8, currentY, fractionLen+fractionWidth/2, fractionWidth/2.5);
   ellipse(currentX+fractionLen/5, currentY-fractionWidth, fractionLen*1.3, fractionWidth/2);
   ellipse(currentX+fractionLen/6, currentY+fractionWidth/2, fractionLen*1.2, fractionWidth/2.5);
@@ -113,9 +113,9 @@ void paint() {
   ellipse(currentX-fractionLen/16, currentY+fractionWidth*1.5, fractionLen*1.2, fractionWidth/4);
   ellipse(currentX-fractionLen/17, currentY+fractionWidth*1.4, fractionLen*1.3, fractionWidth/1.6);
   ellipse(currentX-fractionLen/18, currentY-fractionWidth*1.6, fractionLen*1.4, fractionWidth/2.5);
-  ellipse(currentX-fractionLen/19, currentY+fractionWidth*1.7, fractionLen*1.7, fractionWidth/4);
+  ellipse(currentX-fractionLen/19, currentY+fractionWidth*1.7, fractionLen*1.7, fractionWidth/4);*/
 
-  fill(redValue+80, greenValue+80, blueValue+80, alphaValue-10);
+  /*fill(redValue+80, greenValue+80, blueValue+80, alphaValue-10);
   ellipse(currentX+fractionLen/8, currentY, fractionLen+fractionWidth/2, fractionWidth/2.5);
   ellipse(currentX+fractionLen/8, currentY-fractionWidth, fractionLen*1.3, fractionWidth/2);
   ellipse(currentX+fractionLen/9, currentY+fractionWidth/2, fractionLen*1.2, fractionWidth/2.5);
@@ -124,7 +124,7 @@ void paint() {
   ellipse(currentX-fractionLen/12, currentY+fractionWidth*1.5, fractionLen*1.2, fractionWidth/4);
   ellipse(currentX-fractionLen/13, currentY+fractionWidth*1.4, fractionLen*1.3, fractionWidth/1.6);
   ellipse(currentX-fractionLen/14, currentY-fractionWidth*1.6, fractionLen*1.4, fractionWidth/2.5);
-  ellipse(currentX-fractionLen/15, currentY+fractionWidth*1.7, fractionLen*1.7, fractionWidth/4);
+  ellipse(currentX-fractionLen/15, currentY+fractionWidth*1.7, fractionLen*1.7, fractionWidth/4);*/
   
   fill(getPixelArr[originalX][originalY]);
   ellipse(currentX, currentY, fractionLen+fractionWidth/2, fractionWidth/2.5);

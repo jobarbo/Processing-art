@@ -24,7 +24,7 @@ float bright = 95;
 float alfa = 20;
 
 void setup() {
-  size(792, 1224);
+  size(864, 1296);
   beginRecord(PDF, "sunset.pdf");
   colorMode(HSB, 360, 100, 100, 100);
   background(197, 98, 25);
@@ -104,14 +104,14 @@ void createBackground() {
   float bSat = 50;
   float bBright = 100;
   float fade = 100;
-  for (int c = height; c>height/5; c=c-20) {
-    strokeWeight(20);
+  for (float c = height; c>height/2; c=c-1) {
+    strokeWeight(1);
     stroke(bHue, bSat, bBright, fade);
     line(0, c, width, c);
-    bHue = bHue +1;
-    bSat = bSat - 1.61; 
-    bBright = bBright -0.715;
-    fade = fade - 4.2;
+    bHue = bHue +0.05;
+    bSat = bSat - 0.0561; 
+    bBright = bBright -0.0715;
+    fade = fade - 0.25;
   }
 }
 

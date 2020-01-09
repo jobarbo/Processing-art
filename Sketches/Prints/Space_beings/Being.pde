@@ -27,7 +27,7 @@ class Being {
     //b = random(20, 40);
     h = hue;
     s = random(30,60);
-    b = random(0,20);
+    b = random(5,25);
   }
 
   void move() {
@@ -42,7 +42,7 @@ class Being {
 
   void display() {
     strokeWeight(1);
-    stroke(360, 20);
+    stroke(360, 10);
     //noStroke();
     fill(h, s, b, alpha);
     ellipse(x, y, diameter, diameter);

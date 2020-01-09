@@ -1,9 +1,9 @@
-import processing.svg.*;
+import processing.pdf.*;
 boolean record;
 
 float h = 255;
-float s = 250;
-float b = 50;
+float s = 100;
+float b = 60;
 
 float sizeRand;
 float opacityRand;
@@ -11,9 +11,8 @@ float angle;
 
 
 void setup() {
-  //size(1200,160);
-  //size(1200,160, SVG, "clairdelune.svg");
-  size(1440, 400);
+  size(1000, 1273);
+  beginRecord(PDF, "clairdelune_"+width+"x"+height+".pdf");
   colorMode(HSB,360,100,100);
 
 
@@ -32,7 +31,7 @@ void setup() {
   noStroke();
   rectMode(CENTER);
 
-  for (float i = height; i > 20; i = i - 40) {
+  for (float i = height; i > 10; i = i - 260) {
     fill(h, s, b);
     push();
     translate(random(0, width), height);
@@ -51,19 +50,14 @@ void setup() {
   }
 }
 
-void draw() {
-  if (record) {
-    // Note that #### will be replaced with the frame number. Fancy!
-    beginRecord(SVG, "frame-####.svg");
-  }
+void draw(){
 
-  if (record) {
-    endRecord();
-    record = false;
-  }
 }
 
-void mousePressed() {
-  record = true;
-  saveFrame("line-######.png");
+void keyPressed() {
+  if (key == 's') {
+    endRecord();
+    save("name_"+width+"x"+height+".png");
+    exit();
+  }
 }

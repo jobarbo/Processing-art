@@ -6,7 +6,8 @@ int individuals;
 int spacing = 40;
 
 void setup() {
-  size(1080, 1080);
+  
+  size(800, 800);
   beginRecord(PDF, "beings"+width+"x"+height+"_.pdf");
   colorMode(HSB, 360, 100, 100, 100);
   individuals = 200;

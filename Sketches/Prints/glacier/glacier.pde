@@ -4,7 +4,7 @@ float y;
 float x = 100;
 float y2;
 float x2 = 100;
-float spacing = 25 ;
+float spacing = 20 ;
 float strokeW = 3  ;
 float strokeC1 = 3;
 float strokeC2 = 150;
@@ -13,8 +13,8 @@ float len = 300;
 float len2 = height/2;
 float endLegs;
 void setup() {
-  size(1463, 1829);
-  beginRecord(PDF, "glacier.pdf");
+  size(1527, 1200);
+  beginRecord(PDF, "glacier_"+width+"x"+height+".pdf");
   background(242,220,220);
   strokeCap(ROUND);
   
@@ -31,7 +31,7 @@ void setup() {
     len = len + random(-15, 7);
     //curveVertex(x,y);
     //curveVertex(x, y+len);
-    line(x, y, width/2, height/2+400);
+    line(x, y, width/2, height/2+350);
     x = x + spacing;
   }
   curveVertex(x, y+len);
@@ -48,5 +48,6 @@ void setup() {
   }
   curveVertex(x2, y2-len2);
   endShape();
+  save("glacier_"+width+"x"+height+".png");
   endRecord();
 }

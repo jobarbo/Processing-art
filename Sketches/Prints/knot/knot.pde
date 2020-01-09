@@ -6,8 +6,8 @@ float randomX, randomY;
 
 
 void setup() {
-  size(800, 800);
-  beginRecord(PDF, "knot_white.pdf");
+  size(1000, 1273);
+  beginRecord(PDF, "knot_"+width+"x"+height+".pdf");
 
   circleX = width/2;
   circleY = height/2;
@@ -24,7 +24,7 @@ void draw() {
 void keyPressed() {
   if (key == 's') {
     endRecord();
-    save("knot_white.png");
+   save("knot_"+width+"x"+height+".png");
     exit();
   }
 }
@@ -41,7 +41,7 @@ void makeKnot(){
   strokeWeight(1);
   stroke(0);
   fill(255);
-  ellipse(circleX, circleY, 20, 20);
+  ellipse(circleX, circleY, 30, 30);
   circleX += random(-5, 5);
   circleY += random(-5, 5);
 }
